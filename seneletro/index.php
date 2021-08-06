@@ -42,6 +42,8 @@ if(isset($_REQUEST["nomeCompletoDoCliente"]) && isset($_REQUEST["endereco"]) && 
         echo "<h1 style = 'font-size: 100px'>R$ $totalAPagar</h1>";
 
 
+
+        
     }
 
 
