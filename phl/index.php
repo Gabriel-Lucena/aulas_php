@@ -17,11 +17,10 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
     $distancia = $_REQUEST["distancia"];
     $quantidadeDePedagios = $_REQUEST["quantidadeDePedagios"];
     $valorDaViagem = ($distancia * 6) + ($quantidadeDePedagios * 9.4);
-    $valorDaViagem = round($valorDaViagem, 2);
-    $valorDaViagem = number_format($valorDaViagem, 2, ',', '.');
+    $valorDaViagem = number_format(round($valorDaViagem, 2), 2, ',', '.');
     echo "<h1> A viagem de $cidadeDeOrigem à $cidadeDeDestino irá custasr o valor total de R$ <em style = ' color : tomato; font-size : 7vh'>$valorDaViagem</em>.</h1>";
 
-    
+
 }else{
 
     echo "<h1>Preencha os campos de maneira correta!!!</h1>";
