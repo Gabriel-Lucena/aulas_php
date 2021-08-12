@@ -12,16 +12,16 @@
     <form action="index.php">
 
         <label for="cidadeDeOrigem">Cidade de saída:</label>
-        <input type="text" name="cidadeDeOrigem" id="cidadeDeOrigem">
+        <input type="text" name="cidadeDeOrigem" id="cidadeDeOrigem" required/>
 
         <label for="cidadeDeDestino">Cidade de destino:</label>
-        <input type="text" name="cidadeDeDestino" id="cidadeDeDestino">
+        <input type="text" name="cidadeDeDestino" id="cidadeDeDestino" required/>
 
         <label for="distancia"> Distância em quilômetros:</label>
-        <input type="text" name="distancia" id="distancia">
+        <input type="number" name="distancia" id="distancia" required/>
 
         <label for="quantidadeDePedagios">Quantidade de pedágios:</label>
-        <input type="text"  name="quantidadeDePedagios"  id="quantidadeDePedagios">
+        <input type="number"  name="quantidadeDePedagios"  id="quantidadeDePedagios" required/>
 
         <button>Calcular</button>
 
