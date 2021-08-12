@@ -24,6 +24,6 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
 }else{
 
     echo "<h1>Preencha os campos de maneira correta!!!</h1>";
-    
+    die;
 }
 

@@ -41,7 +41,7 @@ if(isset($_REQUEST["nomeCompletoDoCliente"]) && isset($_REQUEST["endereco"]) && 
         echo "<h1>Valor a pagar:</h1>";
         echo "<h1 style = 'font-size: 100px'>R$ $totalAPagar</h1>";
 
-
+        
 
         
     }
@@ -50,5 +50,5 @@ if(isset($_REQUEST["nomeCompletoDoCliente"]) && isset($_REQUEST["endereco"]) && 
 }else{
 
     echo "<h1>Preencha os campos de maneira correta!!!</h1>";
-    
+    die;
 }
