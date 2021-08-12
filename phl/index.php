@@ -26,3 +26,4 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
     echo "<h1>Preencha os campos de maneira correta!!!</h1>";
     
 }
+
