@@ -21,6 +21,7 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
     $valorDaViagem = number_format($valorDaViagem, 2, ',', '.');
     echo "<h1> A viagem de $cidadeDeOrigem à $cidadeDeDestino irá custasr o valor total de R$ <em style = ' color : tomato; font-size : 7vh'>$valorDaViagem</em>.</h1>";
 
+    
 }else{
 
     echo "<h1>Preencha os campos de maneira correta!!!</h1>";
