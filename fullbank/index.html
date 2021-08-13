@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcular média</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.php">
 </head>
+
 <body>
-    <form action="index.php">
+    <form action="index2.php">
 
         <label for="nomeCompletoDoFuncionario">Nome completo do cliente:</label>
         <input type="text" name="nomeCompletoDoFuncionario" id="nomeCompletoDoFuncionario">
@@ -17,28 +18,42 @@
         <label for="salario">Salário:</label>
         <input type="number" name="salario" id="salario">
 
-        <label for="genero_mascu">Masculino:</label>
-        <input type="radio" name="genero" id="mascu" value="masc" />
-        
+        <div class="input-radio">
+            <label for="genero_mascu">Masculino:</label>
+            <input type="radio" name="genero" id="mascu" value="masc" />
+        </div>
 
-        <label for="genero_femini">Feminino:</label>
-        <input type="radio" name="genero" id="femini" value="fem" />
+        <div class="input-radio">
 
-        <label for="genero_outro">Outro:</label>
-        <input type="radio" name="genero" id="outro" value="out">
+            <label for="genero_femini">Feminino:</label>
+            <input type="radio" name="genero" id="femini" value="fem" />
+
+        </div>
+
+        <div class="input-radio" style="margin-bottom: 10px;">
+
+            <label for="genero_outro">Outro:</label>
+            <input type="radio" name="genero" id="outro" value="out">
+
+        </div>
 
         <label for="">Cargo:</label>
         <select name="cargos" id="cargos">
-            <option value="pedreiro">Pedreiro</option>
-            <option value="rrr">rrr</option>
-            <option value="fff">fff</option>
+
+            <option selected disabled>- Selecione -</option>
+            <option value="gerente de projeto">Gerente de projeto</option>
+            <option value="gerente de produto">Gerente de produto</option>
+            <option value="desenvolvedor">Desenvolvedor</option>
+            <option value="analista de sistemas">Analista de Sistemas</option>
+            <option value="arquitetos">Arquitetos</option>
+            <option value="engenheiro de software">Engenheiro de Software</option>
 
 
         </select>
-        
 
         <button>Calcular</button>
 
     </form>
 </body>
+
 </html>

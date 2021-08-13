@@ -1,81 +1,93 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-    background-image: linear-gradient(#ccc, white, white, #ccc);
+  background-image: linear-gradient(#ccc, white, white, #ccc);
 }
 
-form{
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-direction: column;
 
-    box-shadow: 0px 5px 10px gray,0px 5px 20px gray;
-    padding: 30px;
-    background-color: white;
+  box-shadow: 0px 5px 10px gray, 0px 5px 20px gray;
+  padding: 30px;
+  background-color: white;
 }
 
-h1{
-    margin-bottom: 10px;
+.input-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-input{
-    width: 100%;
-    margin-bottom: 10px;
-    height: 30px;
+.input-radio input {
+  width: fit-content;
+  margin: 0px;
 }
 
-button{
-    width: 100%;
-    background-color: transparent;
-    border: 2px solid black;
-    height: 30px;
-
-    font-weight: bold;
-    transition: .2s;
-    cursor: pointer;
+h1 {
+  margin-bottom: 10px;
 }
 
-button:hover{
-    box-shadow: 0px 0px 20px black;
+input, select {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 30px;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    min-width: 50%;
+button {
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid black;
+  height: 30px;
 
-    box-shadow: 0px 5px 10px gray,0px 5px 20px gray;
-    padding: 30px;
-    background-color: white;
+  font-weight: bold;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-p{
-    font-size: 22px;
+button:hover {
+  box-shadow: 0px 0px 20px black;
 }
 
-p > em{
-    font-size: 42px;
-    font-style: normal;
-    font-weight: bold;
-    color: blue;
+main {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+
+  box-shadow: 0px 5px 10px gray, 0px 5px 20px gray;
+  padding: 30px;
+  background-color: white;
 }
 
-.alto-consumo{
-    color: red;
+p {
+  font-size: 22px;
 }
 
-.baixo-consumo{
-    color: green;
+p > em {
+  font-size: 42px;
+  font-style: normal;
+  font-weight: bold;
+  color: blue;
+}
+
+.alto-consumo {
+  color: red;
+}
+
+.baixo-consumo {
+  color: green;
 }

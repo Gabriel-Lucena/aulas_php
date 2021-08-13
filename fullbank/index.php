@@ -11,30 +11,18 @@
 
 <?php
 
-if(isset($_REQUEST["nomeCompletoDoFuncionario"]) && isset($_REQUEST["salario"]) && isset($_REQUEST["cargos"])) {
+if (isset($_REQUEST["nomeCompletoDoFuncionario"]) && isset($_REQUEST["salario"]) && isset($_REQUEST["cargos"]) && isset($_REQUEST["genero"])) {
 
-        $nomeCompletoDoFuncionario = $_REQUEST["nomeCompletoDoFuncionario"];
-        $salario = $_REQUEST["salario"];
-        $cargos = $_REQUEST["cargos"];
+    $nomeCompletoDoFuncionario = $_REQUEST["nomeCompletoDoFuncionario"];
+    $salario = $_REQUEST["salario"];
+    $cargos = $_REQUEST["cargos"];
 
-    if ($salario > 5000) {
+    $salarioNovo = $salario > 5000 ? $salario * 1.1 : $salario * 1.2;
 
-        $salario = $salario * (100 + 10) / 100 ;
-       
+    echo "<h1>O $nomeCompletoDoFuncionario passará a receber R$ $salarioNovo, no cargo de $cargos.</h1>";   
 
-        echo "<h1> O $nomeCompletoDoFuncionario passará a receber R$ $salario, no cargo de $cargos.</h1>";
+} else {
 
-    } else {
-        
-        $salario = $salario * (100 + 20) / 100 ;
-       
-
-        echo "<h1> O $nomeCompletoDoFuncionario passará a receber R$ $salario, no cargo de $cargos.</h1>";
-
-    }
-
-    } else {
-
-        echo "<h1>Preencha os campos corretamente!!!</h1>";
-        
-    }
+    echo "<h1>Preencha os campos corretamente!!!</h1>";
+    die;
+}
