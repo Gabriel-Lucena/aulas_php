@@ -1,15 +1,12 @@
 <?php
 
 
-if (
-    isset($_POST["nomeCompletoDoFuncionario"]) && isset($_POST["salario"])
-    && isset($_POST["genero"]) && isset($_POST["cargos"])
-) {
+if (isset($_REQUEST["nomeCompletoDoFuncionario"]) && isset($_REQUEST["salario"]) && isset($_REQUEST["cargos"]) && isset($_REQUEST["genero"])) {
 
-    $nome = $_POST["nomeCompletoDoFuncionario"];
-    $salario = $_POST["salario"];
-    $genero = $_POST["genero"];
-    $cargo = $_POST["cargos"];
+    $nome = $_REQUEST["nomeCompletoDoFuncionario"];
+    $salario = $_REQUEST["salario"];
+    $genero = $_REQUEST["genero"];
+    $cargo = $_REQUEST["cargos"];
 
     // if ($salario > 5000) {
 
