@@ -28,3 +28,5 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
 }
 
 // comentário teste
+
+// segundo comentário teste
