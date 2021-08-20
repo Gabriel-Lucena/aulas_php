@@ -42,7 +42,8 @@ h1 {
   margin-bottom: 10px;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   margin-bottom: 10px;
   height: 30px;

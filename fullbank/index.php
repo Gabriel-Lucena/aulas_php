@@ -19,8 +19,7 @@ if (isset($_REQUEST["nomeCompletoDoFuncionario"]) && isset($_REQUEST["salario"])
 
     $salarioNovo = $salario > 5000 ? $salario * 1.1 : $salario * 1.2;
 
-    echo "<h1>O $nomeCompletoDoFuncionario passará a receber R$ $salarioNovo, no cargo de $cargos.</h1>";   
-
+    echo "<h1>O $nomeCompletoDoFuncionario passará a receber R$ $salarioNovo, no cargo de $cargos.</h1>";
 } else {
 
     echo "<h1>Preencha os campos corretamente!!!</h1>";
