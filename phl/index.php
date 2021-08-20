@@ -27,3 +27,4 @@ if(isset($_REQUEST["cidadeDeOrigem"]) && isset($_REQUEST["cidadeDeDestino"]) && 
     die;
 }
 
+// comentário teste
