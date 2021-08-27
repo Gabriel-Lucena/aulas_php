@@ -96,7 +96,7 @@ $alunosTurmaB = [
         "nota" => 45
     ]
 
-    ];
+];
     
 echo "A média dos alunos da turma A é: " . calcularMedia($alunosTurmaA);
 
