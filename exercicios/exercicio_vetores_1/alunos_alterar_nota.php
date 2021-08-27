@@ -50,34 +50,56 @@ function alterarNota(array &$turma, $nome_do_aluno, $nova_nota) {
 
 }
 
+function fecharNotasAlunos(array &$turma) {
+
+    foreach($turma as $chave => $aluno) {
+
+        if($aluno["nota"] >= 50 ) {
+
+            $turma[$chave]["situacao"] = "aprovado";
+
+        } else {
+
+            $turma[$chave]["situacao"] = "desaprovado";
+        }
+
+    }
+
+}
+
+
 
 $alunosTurmaA = [
 
     "1" => [
         "nome" => "Maria",
         "idade" => 16,
-        "nota" => 85
+        "nota" => 85,
+        "sitaucao" => null
     ],
 
     "2" => [
         "nome" => "Artur",
         "idade" => "16",
-        "nota" => 85.1
+        "nota" => 85.1,
+        "sitaucao" => null
     ],
 
     "3" => [
         "nome" => "Gustavo",
         "idade" => 16,
-        "nota" => 80
+        "nota" => 80,
+        "sitaucao" => null
     ],
 
     "4" => [
         "nome" => "Isabela",
         "idade" => 17,
-        "nota" => 1
+        "nota" => 1,
+        "sitaucao" => null
     ]
 
-    ];
+];
 
 
 $alunosTurmaB = [
@@ -112,8 +134,11 @@ $alunosTurmaB = [
         "nota" => 45
     ]
 
-    ];
-    
-alterarNota($alunosTurmaA, "Isabela",100);
+];
+
+print_r(calcularMedia($alunosTurmaA));
+fecharNotasAlunos($alunosTurmaA);
+maiorNota($alunosTurmaA,"nota");
+
 
 print_r($alunosTurmaA);
