@@ -35,26 +35,21 @@ function maiorNota(array $turma) {
     return $melhorAluno;
 }
 
-function alterarNota(array $turma, $nome_do_aluno, $nova_nota) {
+function alterarNota(array &$turma, $nome_do_aluno, $nova_nota) {
 
     foreach($turma as $chave => $aluno) {
 
         if ($aluno["nome"] == $nome_do_aluno) {
 
-            $aluno[$chave]["nota"] = $nova_nota;
+            $turma[$chave]["nota"] = $nova_nota;
             return;
 
         }
 
     }
 
-    if ($nome = $nome_do_aluno) {
-
-        unset($turma["nota"]);
-
-    }
-
 }
+
 
 $alunosTurmaA = [
 
@@ -79,7 +74,7 @@ $alunosTurmaA = [
     "4" => [
         "nome" => "Isabela",
         "idade" => 17,
-        "nota" => 0
+        "nota" => 1
     ]
 
     ];
