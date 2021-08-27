@@ -1,0 +1,56 @@
+body{
+    background-color: #08090B;
+    color: #FFFFFF;
+    font-family: sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+section{
+    max-width: 80%;
+    width: 50%;
+    padding: 20px;
+
+    background-color: #1B1E22;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #1B1E22;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.aprovado {
+    background-color: #00AA00;
+}
+
+.reprovado {
+    background-color: #AA0000;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #08090B;
+}
+
+table td, th {
+    border: 1px solid #FFF;
+    padding: 10px;
+}
