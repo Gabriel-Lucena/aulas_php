@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .form {
+  color: blue;
+}
+
+#nome {
+  color: blue;
+  font-size: large;
+}
+
+label {
+    position: absolute;
+    top: 3vh;
+    left: 4vw;
+}
+
+form {
+  position: absolute;
+    top: 3vh;
+    left: 4vw;
+  color: red;
+}
+
+.m {
+    position: absolute;
+    top: 3vh;
+    left: 4vw;
+}
+
+.tabela {
+    position: absolute;
+    top: 3vh;
+    left: 4vw;
+} */
+
+button:hover {
+    cursor: pointer;
+}

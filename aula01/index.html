@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Alô</title>
+</head>
+
+<header><h1 class="h1" name="h1">Formulário</h1></header>
+
+<body>
+    
+    <form action="https://localhost/Gabriel/Aula01/teste.php" method="post" id="form">
+        <div>
+            <label for="nome">Nome:</label>
+            <br>
+            <input type="text" id="nome" name="nome"/>
+        </div>
+        <div>
+            <label for="sobrenome">Sobrenome:</label>
+            <br>
+            <input type="text" id="sobrenome" name="sobrenome"/>
+        </div>
+        <div>
+            <label for="idade">Idade:</label>
+            <br>
+            <input id="idade" name="idade"></input>
+        </div>
+    </form>
+
+    <label for="linguagem" class="m">Escolha a sua linguagem preferida:</label>
+    <br>
+
+    <select name="linguagem" id="linguagem" class="tabela">
+        <option value="java">Java</option>
+        <option value="php">PHP</option>
+        <option value="nodejs">NodeJS</option>
+        <option value="c#">C#</option>
+        <option value="ruby">Ruby</option>
+    </select>
+
+    <button>Enviar</button>
+
+</body>
+</html>
