@@ -54,3 +54,25 @@ table td, th {
     border: 1px solid #FFF;
     padding: 10px;
 }
+
+table tr:hover {
+    cursor: pointer;
+    background-color: tomato;
+}
+
+.container-form-nota{
+    position: absolute;
+    width: 100vw;
+    height:100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(255, 20, 145, 0.425);
+    background-color: #FFFFFF99;
+}
+
+.container-form-nota form{
+    padding:20px;
+    background-color: #08090B;
+    border-radius: 10px;
+}

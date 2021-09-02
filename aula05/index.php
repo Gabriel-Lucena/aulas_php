@@ -2,18 +2,17 @@
 
 
 require("./alunos.php");
+require("./funcoes.php");
+
+if (isset($_GET["novaNota"])) {
+
+    $nome = $_GET["nomeAluno"];
+    $nota = $_GET["novaNota"];
+    alterarNota($alunos, $nome, $nota);
+    fecharNotasAlunos($alunos);
+}
 
 
-// importar o arquivo de funções (cria-lo)
-
-require("./funcoes.php")
-
-// chamar a função notas, e pronto
-
-
-
-// pintar a célula do aluno aprovado em verde
-// e reprovado de vermelho
 
 ?>
 
@@ -24,14 +23,15 @@ require("./funcoes.php")
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="./script.js" defer></script>
     <title>Nota dos alunos</title>
 </head>
 
 <body>
     <section>
         <h1>Tabela de notas:</h1>
-    
+
         <table>
             <tr>
                 <th>Nome</th>
@@ -41,30 +41,52 @@ require("./funcoes.php")
             </tr>
 
             <?php
-            
-            foreach($alunos as $aluno) {
-            
+
+            foreach ($alunos as $aluno) {
+
+                $aaa = "";
+
+                if ($aluno["nota"] >= 50) {
+
+                    $class = "aprovado";
+                    $aaa = "Aprovado";
+                } else {
+
+                    $class = "reprovado";
+                    $aaa = "Reprovado";
+                }
+
             ?>
-                <tr>
+                <tr onclick="showFormNota('<?= $aluno["nome"] ?>')">
                     <th><?= $aluno["nome"] ?></th>
                     <th><?= $aluno["idade"] ?></th>
                     <th><?= $aluno["nota"] ?></th>
-                    <th><?=
-                            isset($aluno["situacao"]) ? 
-                            situacao :
-                            ""
-                        ?>
+                    <th class="<?= "$class" ?>"> <?=
+
+                                                    $aaa;
+
+                                                    ?>
                     </th>
                 </tr>
 
             <?php
 
-                }
+            }
 
             ?>
 
         </table>
+
     </section>
+    <div class="container-form-nota">
+        <form>
+            <input type="number" name="novaNota" placeholder="Digite a nova nota" />
+            <input type="hidden" id="nomeAluno" name="nomeAluno" />
+            <button>Alterar</button>
+        </form>
+    </div>
+
+
 </body>
 
 </html>

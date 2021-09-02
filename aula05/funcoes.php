@@ -56,11 +56,11 @@ function fecharNotasAlunos(array &$turma) {
 
         if($aluno["nota"] >= 50 ) {
 
-            $turma[$chave]["situacao"] = "aprovado";
+            $turma[$chave]["situacao"] = "Aprovado";
 
         } else {
 
-            $turma[$chave]["situacao"] = "desaprovado";
+            $turma[$chave]["situacao"] = "Desaprovado";
         }
 
     }
