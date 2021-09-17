@@ -114,7 +114,7 @@ function realizarLogin($usuario, $senha, $dados)
             $_SESSION["id"] = session_id();
             $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
 
-            header('location: https://www.google.com/search?q=onlyfans+gu+severo+calisto&rlz=1C1GCEU_pt-BRBR964BR964&hl=pt-BR&source=hp&ei=t6BEYdfkM7rR1sQPwo6_-Ag&iflsig=ALs-wAMAAAAAYUSuxx5NlJNNBgOZrXbQA1uajz6U7oqh&oq=onlyfans+Gu+Severp&gs_lcp=Cgdnd3Mtd2l6EAMYADIHCCEQChCgATIHCCEQChCgAToLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgUIABCABDoOCC4QgAQQsQMQxwEQowI6CAgAEIAEELEDOgQIABBDOggILhCABBCxAzoICAAQsQMQgwE6BAguEEM6BwgAELEDEEM6CwguEIAEELEDEIMBOgcIABCxAxAKOgoILhCxAxCDARAKOgoIABCxAxCDARAKOgQIABAKOg0IABCxAxCDARCxAxAKOgcILhCxAxAKOgYIABAKEAM6BAgAEAM6BggAEBYQHjoICAAQFhAKEB46BAghEBVQgxJY2TJgxVJoAnAAeACAAZ4BiAGkDZIBBDMuMTKYAQCgAQGwAQA&sclient=gws-wiz');
+            header('location: https://www.youtube.com');
             exit;
         } else {
 
