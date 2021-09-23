@@ -143,3 +143,22 @@ function verificarLogin()
         header('location: index.php');
     }
 }
+
+/*
+
+    Função de finalização de login:
+    
+        Finalização de login.
+
+*/
+
+function finalizarLogin()
+{
+
+    // Destrói todas as variáveis.
+    session_unset();
+    // Destrói a sessão.
+    session_destroy();
+
+    header('location: index.php');
+}
