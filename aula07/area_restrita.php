@@ -6,7 +6,7 @@ require_once('./funcoes.php');
 
 //  Recebendo os dados .json - 1º forma:
 
-$dados = lerArquivo('dados/usuarios.json');
+// $dados = lerArquivo('dados/usuarios.json');
 
 // Teste:
 
@@ -20,9 +20,10 @@ $dados = lerArquivo('dados/usuarios.json');
 
 // Verificando os dados de variáveis de sessão:
 
-echo 'NOME USUÁRIO: ' . $_SESSION["usuario"] . '<br>';
-echo 'ID SESSÃO: ' . $_SESSION["id"] . '<br>';
+// echo 'NOME USUÁRIO: ' . $_SESSION["usuario"] . '<br>';
+// echo 'ID SESSÃO: ' . $_SESSION["id"] . '<br>';
 
+verificarLogin();
 
 ?>
 

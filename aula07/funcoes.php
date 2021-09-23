@@ -93,6 +93,11 @@ function buscarFuncionarioPorId($nomeArquivo, $idFuncionario)
 }
 
 /*
+
+    Função de realizar login:
+
+        Realiza o login.
+
     Parâmetros:
 
     1 - Usuário do form
@@ -120,4 +125,21 @@ function realizarLogin($usuario, $senha, $dados)
     }
 
     header('location: index.php');
+}
+
+/*
+
+    Função de verificar login:
+    
+        Verifica se o usuário passou pelo processo de login.
+
+*/
+
+function verificarLogin()
+{
+
+    if ($_SESSION["id"] != session_id() || (empty($_SESSION["id"]))) {
+
+        header('location: index.php');
+    }
 }
