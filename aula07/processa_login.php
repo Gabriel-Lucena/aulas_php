@@ -1,8 +1,11 @@
 <?php
 
 session_start();
+
+// Recebendo os dados do formulário:
+
 require("./funcoes.php");
 
-realizarLogin($_POST["nome"],$_POST["senha"], lerArquivo("./dados/usuarios.json"));
+realizarLogin($_POST["txt_usuario"],$_POST["txt_senha"], lerArquivo("./dados/usuarios.json"));
 
 ?>

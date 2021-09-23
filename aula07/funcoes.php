@@ -114,12 +114,10 @@ function realizarLogin($usuario, $senha, $dados)
             $_SESSION["id"] = session_id();
             $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
 
-            header('location: https://www.youtube.com');
-            exit;
-        } else {
-
-            header('location: https://www.youtube.com/watch?v=DQZndRrDrrM&ab_channel=MyDeepSound');
+            header('location: area_restrita.php');
             exit;
         }
     }
+
+    header('location: index.php');
 }
