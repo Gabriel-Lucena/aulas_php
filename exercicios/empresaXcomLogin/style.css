@@ -1,0 +1,236 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2e0f28;
+    color: #ffffff;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+h2 {
+    color: black;
+}
+
+#subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border: 1px solid rgb(247, 93, 188);
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: rgb(167, 42, 119);
+}
+
+table tr:hover {
+    cursor: pointer;
+    background-color: rgb(109, 94, 248);
+}
+
+table td, th {
+    border: 1px solid rgb(247, 93, 188);
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 5px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#buscarFuncionario {
+    margin-bottom: 20px;
+    border: none;
+}
+
+#buscar {
+    width: 9.6%;
+    margin-bottom: 20px;
+    background-color: #ff008c;
+}
+
+#buscar:hover {
+    background-color: #770041;
+}
+
+button {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: #ff008c;
+    color: white;
+    font-weight: bold;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #770041;
+}
+
+#add_new {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #ff008c;
+    box-shadow: rgb(110, 1, 105) 0px 7px 29px 0px;
+    transition: all 0.2s ease-in-out;
+}
+
+#add_new:hover {
+    transform: scale(1.1);
+    background-color: rgb(110, 1, 105);
+}
+
+#add_new p {
+    font-size: 32px;
+    color: white;
+}
+
+#add_container_modal, #delete_container_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#add_container_modal #add_bg, #delete_container_modal #delete_bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #12121233;
+}
+
+#add_container_modal .modal, #delete_container_modal .modal {
+    background-color: rgb(255, 255, 255);
+    width: 600px;
+    position: absolute;
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: rgb(255, 0, 255) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+#add_container_modal .modal form, #delete_container_modal .modal form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#add_container_modal .modal form input, #add_container_modal .modal form select {
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid #868686;
+    padding: 0 12px;
+    outline: none;
+    width: 100%;
+}
+
+#add_container_modal .modal form select {
+    color: #868686;
+}
+
+#add_container_modal .modal form input:focus, #add_container_modal .modal form select:focus {
+    border: 2px solid #2b2b2b;
+    border-radius: 8px;
+    padding: 0 11px;
+}
+
+#add_container_modal .modal form .buttons, #delete_container_modal .modal form .buttons {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+}
+
+#add_container_modal .modal form button, #delete_container_modal .modal form button {
+    height: 50px;
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cancel, #cancelDelete {
+    background-color: rgb(110, 1, 105);
+}
+
+#send, #confirmDelete {
+    background-color: rgb(255, 32, 225)
+}
+
+.container-form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divTeste {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonSalvarEdicao {
+    width: 400px;
+    margin-top: 15px;
+}
+
+.container-form input {
+    margin-top: 5px;
+    width: 400px;
+}
+
+.container-form h1 {
+    max-width: 400px;
+}
