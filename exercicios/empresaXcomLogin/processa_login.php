@@ -13,11 +13,11 @@ if (isset($_POST["txt_usuario"]) || isset($_POST["txt_senha"])) {
     $usuario = $_POST["txt_usuario"];
     $senha = $_POST["txt_senha"];
 
-    realizarLogin($usuario, $senha, lerArquivo("./dados/usuarios.json"));
+    realizarLogin($usuario, $senha, lerArquivo("./login/dados/usuarios.json"));
 } else if ($_GET["logout"]) {
 
     finalizarLogin();
 }
 
 
-realizarLogin($_POST["txt_usuario"], $_POST["txt_senha"], lerArquivo("./dados/usuarios.json"));
+// realizarLogin($_POST["txt_usuario"], $_POST["txt_senha"], lerArquivo("./dados/usuarios.json"));

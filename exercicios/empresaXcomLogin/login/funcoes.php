@@ -119,12 +119,12 @@ function realizarLogin($usuario, $senha, $dados)
             $_SESSION["id"] = session_id();
             $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
 
-            header('location: ../index.php');
+            header('location: ./../index.php');
             exit;
         }
     }
 
-    header('location: index.php');
+    header('location: login.php');
 }
 
 /*
@@ -140,7 +140,7 @@ function verificarLogin()
 
     if ($_SESSION["id"] != session_id() || (empty($_SESSION["id"]))) {
 
-        header('location: index.php');
+        header('location: login.php');
     }
 }
 
@@ -160,5 +160,5 @@ function finalizarLogin()
     // Destrói a sessão.
     session_destroy();
 
-    header('location: index.php');
+    header('location: login.php');
 }

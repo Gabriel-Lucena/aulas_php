@@ -1,6 +1,10 @@
 <?php
 
+session_start();
+
 require("./funcoes.php");
+
+verificarLogin();
 
 $funcionarios = lerArquivo("./empresaX.json");
 
@@ -29,6 +33,7 @@ if (
     header("location: index.php");
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +44,7 @@ if (
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a757f2d5f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
     <title>Empresa X</title>
@@ -47,11 +53,12 @@ if (
 <body>
     <h1>Funcionários da empresa X</h1>
 
-    <form>
-        <button>
-            <a class="material-icons" href="processa_login.php?logout=true">logout</a>
-        </button>
-    </form>
+    <h2>
+
+        <a class="material-icons" href="processa_login.php?logout=true">logout</a>
+
+    </h2>
+
     <p id="subtitle">A empresa conta com <?= $count ?> funcionários</p>
     <section>
         <form>

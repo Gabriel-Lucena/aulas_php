@@ -66,3 +66,61 @@ function buscarFuncionarioPorId($nomeArquivo, $idFuncionario)
 
     return false;
 }
+
+
+function realizarLogin($usuario, $senha, $dados)
+{
+
+    foreach ($dados as $dado) {
+
+        if ($dado->usuario == $usuario && $dado->senha == $senha) {
+
+            // Variáveis de sessão:
+
+            $_SESSION["usuario"] = $dado->usuario;
+            $_SESSION["id"] = session_id();
+            $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
+
+            header('location: ./index.php');
+            exit;
+        }
+    }
+
+    header('location: ./login.php');
+}
+
+/*
+
+    Função de verificar login:
+    
+        Verifica se o usuário passou pelo processo de login.
+
+*/
+
+function verificarLogin()
+{
+
+    if ($_SESSION["id"] != session_id() || (empty($_SESSION["id"]))) {
+
+        header('location: ./login.php');
+    }
+}
+
+/*
+
+    Função de finalização de login:
+    
+        Finalização de login.
+
+*/
+
+function finalizarLogin()
+{
+
+    // Destrói todas as variáveis.
+    session_unset();
+    // Destrói a sessão.
+    session_destroy();
+
+    header('location: ./login.php');
+}
