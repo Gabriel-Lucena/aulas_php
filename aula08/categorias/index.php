@@ -1,4 +1,11 @@
+<?php
 
+require("../database/conexao.php");
+
+$sql = "SELECT * FROM tbl_categoria";
+
+$resultado = mysqli_query($conexao, $sql);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,16 +33,30 @@
                     </ul>
                     <div class="input-group span2">
                         <label for="descricao">Descrição</label>
-                        <input type="text" name="descricao" id="descricao"/>
+                        <input type="text" name="descricao" id="descricao" />
                     </div>
                     <button type="button" onclick="javascript:window.location.href = '../produtos/'">Cancelar</button>
                     <button>Salvar</button>
                 </form>
                 <h1>Lista de Categorias</h1>
 
-                    <div class="card-categorias">
-                        <img onclick="deletar()" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
-                    </div>
+                <?php
+
+                while ($categoria = mysqli_fetch_array($resultado)) {
+
+                    echo '<pre>';
+                    echo $categoria["descricao"];
+                    echo '<pre>';
+
+                }
+
+                exit;
+
+                ?>
+
+                <div class="card-categorias">
+                    <img onclick="deletar()" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
+                </div>
 
                 <form id="form-deletar" method="POST" action="./acoes.php">
                     <input type="hidden" name="acao" value="deletar" />
@@ -45,7 +66,7 @@
         </section>
     </div>
     <script lang="javascript">
-        function deletar(categoriaId){
+        function deletar(categoriaId) {
             document.querySelector("#categoriaId").value = categoriaId;
             document.querySelector("#form-deletar").submit();
         }
