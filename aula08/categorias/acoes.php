@@ -42,6 +42,18 @@ switch ($_POST['acao']) {
 
         break;
     
+    case 'deletar':
+
+        $categoriaId = $_POST['categoriaId'];
+
+        $sql = "DELETE FROM tbl_categoria WHERE id = $categoriaId";
+
+        $resultado = mysqli_query($conexao, $sql);
+
+        header('location: index.php');
+
+        break;
+
     default:
         # code...
         break;
