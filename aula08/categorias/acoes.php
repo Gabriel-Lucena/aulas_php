@@ -40,7 +40,7 @@ switch ($_POST["acao"]) {
 
         if (count($erros) > 0) {
 
-            $_SESSION["errors"] = $erros;
+            $_SESSION["erros"] = $erros;
 
             header("location: index.php");
 
