@@ -58,7 +58,6 @@ $resultado = mysqli_query($conexao, $sql);
 
                     </ul>
 
-
                     <div class="input-group span2">
                         <label for="descricao">Descrição</label>
                         <input type="text" name="descricao" id="descricao" />
@@ -77,6 +76,7 @@ $resultado = mysqli_query($conexao, $sql);
                     <div class="card-categorias">
                         <?php echo $categoria["descricao"]; ?>
                         <img onclick="deletar(<?php echo $categoria['id']; ?>)" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
+                        <img onclick="javascript: window.location = 'editar.php?id=<?php echo $categoria['id']; ?>'" src="https://icons.veryicon.com/png/o/education-technology/distance-learning/pencil-93.png">
                     </div>
 
                 <?php
