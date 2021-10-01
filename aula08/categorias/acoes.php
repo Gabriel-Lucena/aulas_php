@@ -1,8 +1,25 @@
 <?php
 
+session_start();
+
 /* Conexão com o banco de dados */
 
 require('../database/conexao.php');
+
+/* Função de validação */
+
+function validaCampos()
+{
+
+    $erros = [];
+
+    if (!isset($_POST['descricao']) || $_POST['descricao'] == "") {
+
+        $erros[] = "O campo descrição é de preenchimento obrigatório";
+    }
+
+    return $erros;
+}
 
 /*
 Tratamento dos dados vindos do formulário:
@@ -12,15 +29,30 @@ Tratamento dos dados vindos do formulário:
 
 */
 
-switch ($_POST['acao']) {
+switch ($_POST["acao"]) {
     case 'inserir':
+
+        /* Chamada da função de validação de erros: */
+
+        $erros = validaCampos();
         
+        /* Verificar se existem erros: */
+
+        if (count($erros) > 0) {
+
+            $_SESSION["errors"] = $erros;
+
+            header("location: index.php");
+
+            exit();
+        }
+
         $descricao = $_POST['descricao'];
 
         /* 
             Motangem da instrução sql de inserção de dados:
         */
-        
+
         $sql = "INSERT INTO tbl_categoria (descricao) VALUES ('$descricao')";
 
         /* 
@@ -41,7 +73,7 @@ switch ($_POST['acao']) {
         echo '<pre>';
 
         break;
-    
+
     case 'deletar':
 
         $categoriaId = $_POST['categoriaId'];
@@ -58,8 +90,3 @@ switch ($_POST['acao']) {
         # code...
         break;
 }
-
-
-
-
-?>

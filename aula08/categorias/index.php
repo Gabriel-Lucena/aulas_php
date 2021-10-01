@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require("../database/conexao.php");
 
 $sql = "SELECT * FROM tbl_categoria";
@@ -28,9 +30,35 @@ $resultado = mysqli_query($conexao, $sql);
                 <form class="form-categoria" method="POST" action="./acoes.php">
                     <input type="hidden" name="acao" value="inserir" />
                     <h1 class="span2">Adicionar Categorias</h1>
+
                     <ul>
 
+                        <?php
+
+                        if (isset($_SESSION["erros"])) {
+
+                            foreach ($_SESSION["erros"] as $erro) {
+
+                        ?>
+
+                                <li>
+
+                                    <?php echo $erro ?>
+
+                                </li>
+
+                        <?php
+
+                            } /* Fim do foreach */
+
+                            session_destroy();
+                        } /* Fim do if */
+
+                        ?>
+
                     </ul>
+
+
                     <div class="input-group span2">
                         <label for="descricao">Descrição</label>
                         <input type="text" name="descricao" id="descricao" />
@@ -47,7 +75,7 @@ $resultado = mysqli_query($conexao, $sql);
                 ?>
 
                     <div class="card-categorias">
-                        <?php echo $categoria["descricao"] ?>
+                        <?php echo $categoria["descricao"]; ?>
                         <img onclick="deletar(<?php echo $categoria['id']; ?>)" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
                     </div>
 
