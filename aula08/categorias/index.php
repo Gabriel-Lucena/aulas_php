@@ -44,19 +44,18 @@ $resultado = mysqli_query($conexao, $sql);
 
                 while ($categoria = mysqli_fetch_array($resultado)) {
 
-                    echo '<pre>';
-                    echo $categoria["descricao"];
-                    echo '<pre>';
+                ?>
+
+                    <div class="card-categorias">
+                        <?php echo $categoria["descricao"] ?>
+                        <img onclick="deletar(<?php echo $categoria['id']; ?>)" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
+                    </div>
+
+                <?php
 
                 }
 
-                exit;
-
                 ?>
-
-                <div class="card-categorias">
-                    <img onclick="deletar()" src="https://icons.veryicon.com/png/o/construction-tools/coca-design/delete-189.png" />
-                </div>
 
                 <form id="form-deletar" method="POST" action="./acoes.php">
                     <input type="hidden" name="acao" value="deletar" />
