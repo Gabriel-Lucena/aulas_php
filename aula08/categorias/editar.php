@@ -32,7 +32,8 @@ $categoria = mysqli_fetch_array($resultado);
         <section class="categorias-container">
             <main>
                 <form class="form-categoria" method="POST" action="./acoes.php">
-                    <input type="hidden" name="acao" value="inserir" />
+                    <input type="hidden" name="acao" value="editar" />
+                    <input type="hidden" name="id" value="<?php echo $categoria["id"] ?>" />
                     <h1 class="span2">Adicionar Categorias</h1>
                     <ul>
 
@@ -54,7 +55,14 @@ $categoria = mysqli_fetch_array($resultado);
 
                             } /* Fim do foreach */
 
+                            // Destrói a variável de sessão.
+
+                            session_unset();
+
+                            // Destrói a sessão.
+
                             session_destroy();
+
                         } /* Fim do if */
 
                         ?>
