@@ -104,6 +104,8 @@ switch ($_POST["acao"]) {
 
         $resultado = mysqli_query($conexao, $sql);
 
+        /* Redirecionar para index.html */
+
         header('location: index.php');
 
         break;
