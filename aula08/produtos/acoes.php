@@ -56,6 +56,56 @@ switch ($_POST["acao"]) {
         move_uploaded_file($_FILES["foto"]["tmp_name"], "./fotos/$novoNome");
 
 
+        /* Inserção de dados na base de dados do MySQL */
+
+        /* Recebimento dos dados: */
+
+        $produto = array(
+
+            $_POST["descricao"],
+            $_POST["peso"],
+            $_POST["quantidade"],
+            $_POST["cor"],
+            $_POST["tamanho"],
+            $_POST["valor"],
+            $_POST["desconto"],
+            $novoNome,
+            $_POST["categoria"]
+
+        );
+
+        $descricao = $_POST["descricao"];
+        $peso = $_POST["peso"];
+        $quantidade = $_POST["quantidade"];
+        $cor = $_POST["cor"];
+        $tamanho = $_POST["tamanho"];
+        $valor = $_POST["valor"];
+        $desconto = $_POST["desconto"];
+        $categoriaId = $_POST["categoria"];
+
+
+        /* Criação da instrução sql de inserção */
+
+        $sql = "INSERT INTO tbl_produto
+        
+        (descricao, peso, quantidade, cor, tamanho, valor, desconto, imagem, categoria_id)
+        VALUES ('$descricao', $peso, '$quantidade', '$cor', '$tamanho', $valor, $desconto, '$novoNome', $categoriaId)
+        
+        ";
+
+        $sql = "INSERT INTO tbl_produto
+        
+               ( descricao,    peso,          quantidade,    cor,           tamanho,      valor,       desconto,     imagem,       categoria_id)
+        VALUES ('$produto[0]', $produto[1] , '$produto[2]', '$produto[3]', '$produto[4]', $produto[5], $produto[6], '$produto[7]', $produto[8])
+
+        ";
+
+        /* Execução do SQL de inserção */
+
+        $resultado = mysqli_query($conexao, $sql);
+
+        header('location: index.php');
+
         break;
 
     case 'deletar':
