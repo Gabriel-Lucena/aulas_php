@@ -54,6 +54,22 @@ $resultado = mysqli_query($conexao, $sql);
                 <?php
 
                 while ($produto = mysqli_fetch_array($resultado)) {
+                    $valor = $produto["valor"];
+                    $desconto = $produto["desconto"];
+
+                    if ($desconto > 0) {
+
+                        $valorDesconto = ($desconto / 100) * $valor;
+                    }
+
+                    $qtdParcelas = $valor > 1000 ? 12 : 6;
+
+                    $valorComDesconto = $valor - $valorDesconto;
+
+                    // $valor = $valor - $valorDesconto;
+                    // $valor -= $valorDesconto;
+
+                    $valorParcela = $valorComDesconto / $qtdParcelas;
 
                 ?>
 
@@ -71,22 +87,26 @@ $resultado = mysqli_query($conexao, $sql);
                         <section>
 
                             <span class="preco">
-                                R$
-                                <em>% off</em>
+                                R$ <?php echo $valorComDesconto; ?>
+                                <em><?php echo $desconto; ?>% off</em>
                             </span>
 
                             <span class="parcelamento">ou em
                                 <em>
-                                    x R$ sem juros
+                                    <?php echo $qtdParcelas; ?>x R$ sem juros
                                 </em>
                             </span>
 
                             <span class="descricao">
-                                доброе утро
+                                <?php echo $produto[1]; ?>
                             </span>
 
                             <span class="categoria">
-                                <em></em>
+                                <em>
+
+                                <?php echo $produto["descricao"]; ?>
+
+                                </em>
                             </span>
 
                     </article>
