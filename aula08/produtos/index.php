@@ -93,7 +93,7 @@ $resultado = mysqli_query($conexao, $sql);
 
                             <span class="parcelamento">ou em
                                 <em>
-                                    <?php echo $qtdParcelas; ?>x R$ sem juros
+                                    <?php echo $qtdParcelas; ?> x R$ <?php echo number_format($valorParcela, 2, ',', '.') ?> sem juros
                                 </em>
                             </span>
 
