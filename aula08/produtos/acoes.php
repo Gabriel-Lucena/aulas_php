@@ -212,13 +212,13 @@ switch ($_POST["acao"]) {
     case 'deletar':
 
         $produtoId = $_POST['produtoId'];
-        
+
         $sql = "SELECT imagem FROM tbl_produto WHERE id = $produtoId";
-        
+
         $resultado = mysqli_query($conexao, $sql);
-        
+
         $produto = mysqli_fetch_array($resultado);
-        
+
         $sql = "DELETE FROM tbl_produto WHERE id = $produtoId";
 
         $resultado = mysqli_query($conexao, $sql);
@@ -231,12 +231,36 @@ switch ($_POST["acao"]) {
 
     case 'editar':
 
+        /* Atualizando a imagem do produto */
+
+        $produtoId = $_POST["produtoId"];
+
+        if ($_FILES["foto"]["error"] != UPLOAD_ERR_NO_FILE) {
+
+            $sqlImagem = "SELECT imagem FROM tbl_produto WHERE id = $produtoId";
+
+            $resultado = mysqli_query($conexao, $sqlImagem);
+            $produto = mysqli_fetch_array($resultado);
+
+            echo './fotos/' . $produto["imagem"];exit;
+        }
+
+
+        /* Captura os dados de texto e de número */
+
         $id = $_POST["id"];
         $descricao = $_POST["descricao"];
+        $peso = str_replace(",", ".", $_POST["peso"]);
+        $peso = str_replace(",", ".", $peso);
 
-        $sql = "UPDATE tbl_categoria SET descricao = '$descricao' where id = $id";
+        $valor = str_replace(",", ".", $_POST["valor"]);
+        $valor = str_replace(",", ".", $valor);
 
-        $resultado = mysqli_query($conexao, $sql);
+        $quantidade = $_POST["quantidade"];
+        $cor = $_POST["cor"];
+        $tamanho = $_POST["tamanho"];
+        $desconto = $_POST["desconto"];
+        $categoriaId = $_POST["categoria"];
 
         header('location: index.php');
 
