@@ -72,7 +72,7 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
           <div class="input-group">
             <label for="peso">Peso</label>
-            <input type="text" name="peso" value="<?php echo $vetor["peso"] ?>" id="peso" required>
+            <input type="text" name="peso" value="<?php echo number_format($vetor["peso"], 2, ",", ".") ?>" id="peso" required>
           </div>
 
           <div class="input-group">
@@ -92,7 +92,7 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
           <div class="input-group">
             <label for="valor">Valor</label>
-            <input type="text" name="valor" value="<?php echo $vetor["valor"] ?>" id="valor" required>
+            <input type="text" name="valor" value="<?php echo number_format($vetor["valor"], 2, ",", ".") ?>" id="valor" required>
           </div>
 
           <div class="input-group">
