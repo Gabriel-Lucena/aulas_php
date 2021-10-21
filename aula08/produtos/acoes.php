@@ -11,17 +11,19 @@ require('../database/conexao.php');
 function validaCampos()
 {
 
-    //Array de mensagens de erro
+    /* Vetor de mensagens de erro */
 
     $erros = [];
 
-    //Validação de descrição
+    /* Conexão com o banco de dados */
+
     if ($_POST["descricao"] == "" || !isset($_POST["descricao"])) {
 
         $erros[] = "O campo descrição é um campo obrigatório";
     }
 
-    //Validação de peso
+    /* Validação de peso */
+
     if ($_POST["peso"] == "" || !isset($_POST["peso"])) {
 
         $erros[] = "O campo peso é um campo obrigatório";
@@ -30,7 +32,8 @@ function validaCampos()
         $erros[] = "O campo peso deve ser um número";
     }
 
-    //Validação de quantidade
+    /* Validação de quantidade */
+
     if ($_POST["quantidade"] == "" || !isset($_POST["quantidade"])) {
 
         $erros[] = "O campo quantidade é um campo obrigatório";
@@ -39,19 +42,22 @@ function validaCampos()
         $erros[] = "O campo quantidade deve ser um número";
     }
 
-    //Validação de cor
+    /* Validação de cor */
+
     if ($_POST["cor"] == "" || !isset($_POST["cor"])) {
 
         $erros[] = "O campo cor é um campo obrigatório";
     }
 
-    //Validação de tamanho
+    /* Validação de tamanho */
+
     if ($_POST["tamanho"] == "" || !isset($_POST["tamanho"])) {
 
         $erros[] = "O campo tamanho é um campo obrigatório";
     }
 
-    //Validação de valor
+    /* Validação de ação */
+
     if ($_POST["valor"] == "" || !isset($_POST["valor"])) {
 
         $erros[] = "O campo valor é um campo obrigatório";
@@ -60,7 +66,8 @@ function validaCampos()
         $erros[] = "O campo valor deve ser um número";
     }
 
-    //Validação de desconto
+    /* Validação de desconto */
+
     if ($_POST["desconto"] == "" || !isset($_POST["desconto"])) {
 
         $erros[] = "O campo desconto é um campo obrigatório";
@@ -69,13 +76,15 @@ function validaCampos()
         $erros[] = "O campo desconto deve ser um número";
     }
 
-    //Validação de categoria
+    /* Validação de categoria */
+
     if ($_POST["categoria"] == "" || !isset($_POST["categoria"])) {
 
         $erros[] = "O campo categoria é um campo obrigatório";
     }
 
-    //Validação da imagem
+    /* Validação de imagem */
+
     if ($_FILES["foto"]["error"] == UPLOAD_ERR_NO_FILE) {
 
         $erros[] = "O arquivo precisa ser uma imagem";
@@ -113,14 +122,13 @@ switch ($_POST["acao"]) {
 
         $erros = validaCampos();
 
-        if(count($erros) > 0){
+        if (count($erros) > 0) {
 
             $_SESSION["erros"] = $erros;
 
             header("location: novo/index.php");
 
             exit;
-
         }
 
         /* Tratamento da imagem para upload */
@@ -203,11 +211,19 @@ switch ($_POST["acao"]) {
 
     case 'deletar':
 
-        $categoriaId = $_POST['categoriaId'];
-
-        $sql = "DELETE FROM tbl_categoria WHERE id = $categoriaId";
+        $produtoId = $_POST['produtoId'];
+        
+        $sql = "SELECT imagem FROM tbl_produto WHERE id = $produtoId";
+        
+        $resultado = mysqli_query($conexao, $sql);
+        
+        $produto = mysqli_fetch_array($resultado);
+        
+        $sql = "DELETE FROM tbl_produto WHERE id = $produtoId";
 
         $resultado = mysqli_query($conexao, $sql);
+
+        unlink("./fotos/" . $produto["imagem"]);
 
         header('location: index.php');
 

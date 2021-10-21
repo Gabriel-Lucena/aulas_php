@@ -49,7 +49,7 @@ $resultado = mysqli_query($conexao, $sql);
 
             <main>
 
-                <!-- LISTAGEM DE PRODUTOS (INICIO) -->
+                <!-- LISTAGEM DE PRODUTOS (INÍCIO) -->
 
                 <?php
 
@@ -57,11 +57,8 @@ $resultado = mysqli_query($conexao, $sql);
                     $valor = $produto["valor"];
                     $desconto = $produto["desconto"];
 
-                    if ($desconto > 0) {
-
-                        $valorDesconto = ($desconto / 100) * $valor;
-                    }
-
+                    $valorDesconto = ($desconto / 100) * $valor;
+                    
                     $qtdParcelas = $valor > 1000 ? 12 : 6;
 
                     $valorComDesconto = $valor - $valorDesconto;
@@ -104,7 +101,7 @@ $resultado = mysqli_query($conexao, $sql);
                             <span class="categoria">
                                 <em>
 
-                                <?php echo $produto["descricao"]; ?>
+                                    <?php echo $produto["descricao"]; ?>
 
                                 </em>
                             </span>
@@ -124,6 +121,7 @@ $resultado = mysqli_query($conexao, $sql);
         <!-- LISTAGEM DE PRODUTOS (FIM) -->
 
         <!-- FORM USADO PARA A EXCLUSÃO DE PRODUTOS -->
+
         <form id="formDeletar" method="POST" action="./acoes.php">
             <input type="hidden" name="acao" value="deletar" />
             <input type="hidden" name="produtoId" id="produtoId" />
@@ -140,6 +138,7 @@ $resultado = mysqli_query($conexao, $sql);
     </footer>
 
     <!-- SCRIPT QUE DISPARA O FORM DE EXCLUSÃO DE PRODUTOS -->
+
     <script lang="javascript">
         function deletar(produtoId) {
             if (confirm("Tem certeza que deseja deletar este produto?")) {
