@@ -242,13 +242,35 @@ switch ($_POST["acao"]) {
             $resultado = mysqli_query($conexao, $sqlImagem);
             $produto = mysqli_fetch_array($resultado);
 
-            echo './fotos/' . $produto["imagem"];exit;
+            // echo $_FILES["foto"]["name"];
+            // echo './fotos/' . $produto["imagem"];
+            // exit;
+
+            /* Exclusão da foto (arquivo) antiga da pasta */
+
+            unlink("./fotos/" . $produto["imagem"]);
+
+            /* Recupera  */
+
+            $nomeArquivo = $_FILES["foto"]["name"];
+
+            /* Extrai a extensão do arquivo de imagem */
+
+            $extensao = pathinfo($nomeArquivo, PATHINFO_EXTENSION);
+
+            /* Define um nome aleatório à imagem que será armazenada na pasta"fotos */
+
+            $novoNomeArquivo = md5(microtime()) . "." . $extensao;
+
+            /* Upload da imagem com o novo nome */
+
+            move_uploaded_file($_FILES["foto"]["tmp_name"], "fotos/$novoNomeArquivo");
+
         }
 
 
         /* Captura os dados de texto e de número */
 
-        $id = $_POST["id"];
         $descricao = $_POST["descricao"];
         $peso = str_replace(",", ".", $_POST["peso"]);
         $peso = str_replace(",", ".", $peso);
@@ -261,6 +283,29 @@ switch ($_POST["acao"]) {
         $tamanho = $_POST["tamanho"];
         $desconto = $_POST["desconto"];
         $categoriaId = $_POST["categoria"];
+
+        /* Montagem e execução da instrução sql de inserção */
+
+        $sqlUpdate = "UPDATE tbl_produto SET
+                    descricao = '$descricao',
+                    peso = $peso,
+                    quantidade = $quantidade,
+                    cor = '$cor',
+                    tamanho = '$tamanho',
+                    valor = $valor,
+                    desconto = $desconto,
+                    categoria_id = $categoriaId
+                    ";
+
+        /* Verifica se tem imagem nova para atualizar */
+
+        $sqlUpdate .= isset($novoNomeArquivo) ? " , imagem = '$novoNomeArquivo'" : "";
+
+        $sqlUpdate .= "WHERE id = $produtoId";
+
+        $resultado = mysqli_query($conexao, $sqlUpdate);
+
+        // echo $sqlUpdate;exit;
 
         header('location: index.php');
 
