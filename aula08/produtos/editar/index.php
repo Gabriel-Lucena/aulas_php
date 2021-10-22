@@ -63,26 +63,40 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
           <ul>
 
+            <?php
+
+            if (isset($_SESSION["erros"])) {
+
+              foreach ($_SESSION["erros"] as $erro) {
+
+                echo "<li> $erro </li>";
+              }
+
+              session_destroy();
+            }
+
+            ?>
+
           </ul>
 
           <div class="input-group span2">
             <label for="descricao">Descrição</label>
-            <input type="text" name="descricao" value="<?php echo $vetor["descricao"] ?>" id="descricao" required>
+            <input type="text" name="descricao" value="<?php echo $vetor["descricao"] ?>" id="descricao">
           </div>
 
           <div class="input-group">
             <label for="peso">Peso</label>
-            <input type="text" name="peso" value="<?php echo number_format($vetor["peso"], 2, ",", ".") ?>" id="peso" required>
+            <input type="text" name="peso" value="<?php echo number_format($vetor["peso"], 2, ",", ".") ?>" id="peso">
           </div>
 
           <div class="input-group">
             <label for="quantidade">Quantidade</label>
-            <input type="text" name="quantidade" value="<?php echo $vetor["quantidade"] ?>" id="quantidade" required>
+            <input type="text" name="quantidade" value="<?php echo $vetor["quantidade"] ?>" id="quantidade">
           </div>
 
           <div class="input-group">
             <label for="cor">Cor</label>
-            <input type="text" name="cor" value="<?php echo $vetor["cor"] ?>" id="cor" required>
+            <input type="text" name="cor" value="<?php echo $vetor["cor"] ?>" id="cor">
           </div>
 
           <div class="input-group">
@@ -92,7 +106,7 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
           <div class="input-group">
             <label for="valor">Valor</label>
-            <input type="text" name="valor" value="<?php echo number_format($vetor["valor"], 2, ",", ".") ?>" id="valor" required>
+            <input type="text" name="valor" value="<?php echo number_format($vetor["valor"], 2, ",", ".") ?>" id="valor">
           </div>
 
           <div class="input-group">
@@ -104,7 +118,7 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
             <label for="categoria">Categoria</label>
 
-            <select id="categoria" name="categoria" required>
+            <select id="categoria" name="categoria">
 
               <option value="">SELECIONE</option>
 
@@ -132,13 +146,14 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
                 ?>
 
-                <option value="<?php echo $categoria["id"] ?>">
+                  <option value="<?php echo $categoria["id"] ?>">
 
-                  <?php echo $categoria["descricao"] ?>
+                    <?php echo $categoria["descricao"] ?>
 
-                </option>
+                  </option>
 
-              <?php }} ?>
+              <?php }
+              } ?>
 
             </select>
 

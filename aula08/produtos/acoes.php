@@ -230,10 +230,23 @@ switch ($_POST["acao"]) {
         break;
 
     case 'editar':
+        $produtoId = $_POST["produtoId"];
+
+        /* Processo de validação */
+
+        $erros = validaCampos();
+
+        if (count($erros) > 0) {
+
+            $_SESSION["erros"] = $erros;
+
+            header("location: editar/index.php?id=$produtoId");
+
+            exit;
+        }
 
         /* Atualizando a imagem do produto */
 
-        $produtoId = $_POST["produtoId"];
 
         if ($_FILES["foto"]["error"] != UPLOAD_ERR_NO_FILE) {
 
@@ -265,7 +278,6 @@ switch ($_POST["acao"]) {
             /* Upload da imagem com o novo nome */
 
             move_uploaded_file($_FILES["foto"]["tmp_name"], "fotos/$novoNomeArquivo");
-
         }
 
 
