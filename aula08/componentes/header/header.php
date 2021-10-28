@@ -9,7 +9,7 @@ $raiz = "/Gabriel/aula_php/aula08";
 <header class="header">
 
     <figure>
-        <a href="../produtos">
+        <a href=".<? echo $raiz ?>/produtos">
             <img src="<?php echo $raiz; ?>/imgs/logo.png" />
         </a>
     </figure>
@@ -29,7 +29,7 @@ $raiz = "/Gabriel/aula_php/aula08";
 
             <h1>Fazer Login</h1>
 
-            <form method="POST" action="/componentes/header/acoesLogin.php">
+            <form method="POST" action="./processa_login.php">
                 <input type="hidden" name="acao" value="login" />
                 <input type="text" name="usuario" placeholder="Usuário" />
                 <input type="password" name="senha" placeholder="Senha" />
@@ -49,7 +49,7 @@ $raiz = "/Gabriel/aula_php/aula08";
             </ul>
         </nav>
 
-        <form id="form-logout" style="display:none" method="POST" action="/componentes/header/acoesLogin.php">
+        <form id="form-logout" style="display:none" method="POST" action="./processa_login.php">
             <input type="hidden" name="acao" value="logout" />
         </form>
 
@@ -92,5 +92,4 @@ $raiz = "/Gabriel/aula_php/aula08";
 
         }
     }
-    
 </script>

@@ -1,5 +1,9 @@
 <?php
 
+/* Iniciando a sessão */
+
+session_start();
+
 require("../database/conexao.php");
 
 $sql = "SELECT p.*, c.descricao FROM tbl_produto p
@@ -58,7 +62,7 @@ $resultado = mysqli_query($conexao, $sql);
                     $desconto = $produto["desconto"];
 
                     $valorDesconto = ($desconto / 100) * $valor;
-                    
+
                     $qtdParcelas = $valor > 1000 ? 12 : 6;
 
                     $valorComDesconto = $valor - $valorDesconto;
