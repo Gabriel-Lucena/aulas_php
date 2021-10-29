@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+require('../processa_login.php');
+
+verificarLogin();
 
 /* Conexão com o banco de dados */
 
@@ -47,7 +49,7 @@ $selecionar = mysqli_fetch_array(mysqli_query($conexao, $sql));
 
 <body>
 
-<?php include('../../componentes/header/header.php'); ?>
+  <?php include('../../componentes/header/header.php'); ?>
 
 
   <div class="content">

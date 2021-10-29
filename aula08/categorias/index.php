@@ -2,6 +2,10 @@
 
 session_start();
 
+require("../processa_login.php");
+
+verificarLogin();
+
 require("../database/conexao.php");
 
 $sql = "SELECT * FROM tbl_categoria";

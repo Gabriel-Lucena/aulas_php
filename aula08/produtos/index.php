@@ -1,9 +1,5 @@
 <?php
 
-/* Iniciando a sessão */
-
-session_start();
-
 require("../database/conexao.php");
 
 $sql = "SELECT p.*, c.descricao FROM tbl_produto p

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $raiz = "/Gabriel/aula_php/aula08";
 
 ?>

@@ -12,11 +12,17 @@ $retorno = mysqli_query($conexao, $sql);
 
 $vetor = mysqli_fetch_array($retorno);
 
-// Importação do arquivo de funções:
-
-// require("./funcoes.php");
-
 // Recebendo os dados do formulário:
+
+function verificarLogin()
+{
+
+    if ($_SESSION["id"] != session_id() || (empty($_SESSION["id"]))) {
+
+        header('location: ../index.php');
+    }
+}
+
 
 function realizarLogin($usuario, $senha, $conexao)
 {
@@ -29,24 +35,27 @@ function realizarLogin($usuario, $senha, $conexao)
 
     if ($vetor != null) {
 
-        echo "O";
+        $_SESSION["usuario"] = $usuario;
+        $_SESSION["id"] = session_id();
+        $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
+        // header('location: ./index.php');
+        echo "logado";
+
+        echo $_SESSION["usuario"];
+        echo $_SESSION["id"];
+        echo $_SESSION["data_hora"];
+
     } else {
 
+        echo $_SESSION["usuario"];
+        echo $_SESSION["id"];
+        echo $_SESSION["data_hora"];
+
         echo "Ladrão";
+
+        session_destroy();
+        // header("location: ./index.php");
     }
-}
-
-
-
-if (isset($_POST["usuario"]) || isset($_POST["senha"])) {
-
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
-
-    realizarLogin($usuario, $senha, $conexao);
-} else if ($_GET["logout"]) {
-
-    finalizarLogin();
 }
 
 

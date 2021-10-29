@@ -2,6 +2,10 @@
 
 session_start();
 
+require("../processa_login.php");
+
+verificarLogin();
+
 /* Conexão com o banco de dados */
 
 require("../../database/conexao.php");
