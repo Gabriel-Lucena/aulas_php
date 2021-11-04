@@ -20,3 +20,17 @@
 
         read($conexao);
     }
+
+    /* Rota do create */
+
+    if ($acao == "create") {
+
+        $nome = $_REQUEST["nome"];
+        $sobrenome = $_REQUEST["sobrenome"];
+        $email = $_REQUEST["email"];
+        $celular = $_REQUEST["celular"];
+        $fotografia = $_REQUEST["fotografia"];
+
+        create($nome, $sobrenome, $email, $celular, $fotografia, $conexao);
+    }
+

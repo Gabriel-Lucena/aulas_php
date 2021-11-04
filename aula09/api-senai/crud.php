@@ -19,3 +19,19 @@ function read($conexao)
         echo json_encode(array("status" => "Error", "data" => mysqli_error($conexao)));
     }
 }
+
+/* Função de inserção */
+
+function create($nome, $sobrenome, $email, $celular, $fotografia, $conexao)
+{
+
+    $sql = "INSERT INTO tbl_pessoa (nome, sobrenome, email, celular, fotografia)
+
+        VALUES ('$nome','$sobrenome','$email','$celular','$fotografia')";
+
+    if (mysqli_query($conexao, $sql)) {
+        echo json_encode(array("status" => "Sucess", "data" => "Dados inseridos com sucesso"));
+    } else {
+        echo json_encode(array("status" => "Error", "data" => "Erro ao inserir os dados"));
+    }
+}
