@@ -73,3 +73,16 @@ function update($cod_pessoa, $nome, $sobrenome, $email, $celular, $fotografia, $
         echo json_encode(array("status" => "Error", "data" => mysqli_error($conexao)));
     }
 }
+
+/* Função de exclusão */
+
+function delete($cod_pessoa, $conexao)
+{
+    $sql = "DELETE FROM tbl_pessoa WHERE cod_pessoa = '$cod_pessoa'";
+
+    if (mysqli_query($conexao, $sql)) {
+        echo json_encode(array("status" => "Sucess", "data" => "Dados excluídos com sucesso"));
+    } else {
+        echo json_encode(array("status" => "Error", "data" => mysqli_error($conexao)));
+    }
+}

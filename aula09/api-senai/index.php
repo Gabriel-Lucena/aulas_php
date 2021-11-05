@@ -43,7 +43,7 @@
     }
 
     /* Rota do update */
-    
+
     if ($acao == "update") {
 
         $cod_pessoa = $_REQUEST["cod_pessoa"];
@@ -56,4 +56,11 @@
         update($cod_pessoa, $nome, $sobrenome, $email, $celular, $fotografia, $conexao);
     }
 
-    
+    /* Rota do delete */
+
+    if ($acao == "delete") {
+
+        $cod_pessoa = $_REQUEST["cod_pessoa"];
+
+        delete($cod_pessoa, $conexao);
+    }
