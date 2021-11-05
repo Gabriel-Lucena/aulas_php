@@ -42,3 +42,18 @@
         create($nome, $sobrenome, $email, $celular, $fotografia, $conexao);
     }
 
+    /* Rota do update */
+    
+    if ($acao == "update") {
+
+        $cod_pessoa = $_REQUEST["cod_pessoa"];
+        $nome = $_REQUEST["nome"];
+        $sobrenome = $_REQUEST["sobrenome"];
+        $email = $_REQUEST["email"];
+        $celular = $_REQUEST["celular"];
+        $fotografia = $_REQUEST["fotografia"];
+
+        update($cod_pessoa, $nome, $sobrenome, $email, $celular, $fotografia, $conexao);
+    }
+
+    

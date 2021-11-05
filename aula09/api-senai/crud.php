@@ -53,3 +53,23 @@ function create($nome, $sobrenome, $email, $celular, $fotografia, $conexao)
         echo json_encode(array("status" => "Error", "data" => "Erro ao inserir os dados"));
     }
 }
+
+/* Função de atualização */
+
+function update($cod_pessoa, $nome, $sobrenome, $email, $celular, $fotografia, $conexao)
+{
+
+    $sql = "UPDATE tbl_pessoa SET
+        nome = '$nome',
+        sobrenome =  '$sobrenome',
+        email = '$email',
+        celular = '$celular',
+        fotografia = '$fotografia'
+        WHERE cod_pessoa = '$cod_pessoa'";
+
+    if (mysqli_query($conexao, $sql)) {
+        echo json_encode(array("status" => "Sucess", "data" => "Dados alterados com sucesso"));
+    } else {
+        echo json_encode(array("status" => "Error", "data" => mysqli_error($conexao)));
+    }
+}
