@@ -21,6 +21,14 @@
         read($conexao);
     }
 
+    /* Rota do readID */
+
+    if ($acao == "readID") {
+
+        $cod_pessoa = $_REQUEST["cod_pessoa"];
+        readID($cod_pessoa,$conexao);
+    }
+
     /* Rota do create */
 
     if ($acao == "create") {

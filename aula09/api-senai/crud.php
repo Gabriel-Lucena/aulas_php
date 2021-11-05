@@ -20,6 +20,24 @@ function read($conexao)
     }
 }
 
+/* Função de leitura de dados (com critérios) */
+
+function readID($cod_pessoa, $conexao)
+{
+
+    $sql = "SELECT *FROM tbl_pessoa WHERE cod_pessoa = $cod_pessoa";
+
+    if ($resultado = mysqli_query($conexao, $sql)) {
+
+        $dados = mysqli_fetch_all($resultado);
+
+        echo json_encode(array("status" => "Success", "data" => $dados));
+    } else {
+
+        echo json_encode(array("status" => "Error", "data" => mysqli_error($conexao)));
+    }
+}
+
 /* Função de inserção */
 
 function create($nome, $sobrenome, $email, $celular, $fotografia, $conexao)
