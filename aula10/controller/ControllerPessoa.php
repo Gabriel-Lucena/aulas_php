@@ -1,6 +1,6 @@
 <?php
 
-class Controller
+class ControllerPessoa
 {
 
     private $_method;
@@ -12,6 +12,7 @@ class Controller
         $this->_modelPessoa = $model;
         $this->_method = $_SERVER['REQUEST_METHOD'];
 
+        //PERMITE RECEBER DADOS JSON ATRAVÉS DA REQUISIÇÃO
         $json = file_get_contents("php://input");
         $dadosPessoa = json_decode($json);
 
@@ -27,7 +28,6 @@ class Controller
                 if (isset($this->_codPessoa)) {
                     return $this->_modelPessoa->findById();
                 }
-
                 return $this->_modelPessoa->findAll();
 
                 break;
