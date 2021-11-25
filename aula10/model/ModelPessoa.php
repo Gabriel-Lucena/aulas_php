@@ -19,18 +19,18 @@ class ModelPessoa
         $dadosPessoa = json_decode($json);
 
         //RECEBIMENTO DOS DADOS DO POSTMAN:
-        // $this->_codPessoa = $dadosPessoa->cod_pessoa ?? null;
+        $this->_codPessoa = $dadosPessoa->cod_pessoa ?? null;
         // $this->_nome = $dadosPessoa->nome ?? null;
         // $this->_sobrenome = $dadosPessoa->sobrenome ?? null;
         // $this->_email = $dadosPessoa->email ?? null;
         // $this->_celular = $dadosPessoa->celular ?? null;
         // $this->_fotografia = $dadosPessoa->fotografia ?? null;
 
-        $this->_nome = $_POST["nome"];
-        $this->_sobrenome = $_POST["sobrenome"];
-        $this->_email = $_POST["email"];
-        $this->_celular = $_POST["celular"];
-        $this->_fotografia = $_FILES["fotografia"]["name"];
+        $this->_nome = $_POST["nome"] ?? null;
+        $this->_sobrenome = $_POST["sobrenome"] ?? null;
+        $this->_email = $_POST["email"] ?? null;
+        $this->_celular = $_POST["celular"] ?? null;
+        $this->_fotografia = $_FILES["fotografia"]["name"] ?? null;
 
         $this->_conn = $conn;
     }
@@ -87,6 +87,20 @@ class ModelPessoa
             return "Success";
         } else {
             return "Error";
+        }
+    }
+
+    public function delete()
+    {
+
+        $sql = "DELETE FROM tbl_pessoa WHERE cod_pessoa = ?";
+
+        $stmt = $this->_conn->prepare($sql);
+
+        $stmt->bindValue(1, $this->_codPessoa);
+
+        if ($stmt->execute()) {
+            return "Dados excluídos com sucesso!";
         }
     }
 }

@@ -41,7 +41,7 @@ class ControllerPessoa
                 break;
 
             case 'DELETE':
-                # code...
+                return $this->_modelPessoa->delete();
                 break;
 
             default:
